@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?> <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+		
+	
+	<class name="com.hibernate.association.One2One.Employee" table="EMPLOYEE" >
+		<meta attribute="class-description"> This class contains the employee detail. </meta>
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+		<property name="firstName" column="first_name" type="string" />
+		<property name="lastName" column="last_name" type="string" />
+		<property name="salary" column="salary" type="int" />
+		<many-to-one name="address" column="add_id" class="com.hibernate.association.One2One.Address" not-null="true" unique="true"/>
+		
+	</class>
+
+	<class name="com.hibernate.association.One2One.Address" table="Address">
+		<meta attribute="class-description"> This class contains the Address table. </meta>
+		<id name="addId" type="int" column="add_id">
+			<generator class="native" />
+		</id>
+		<property name="drNo" column="dr_no" type="string" />
+		<property name="street" column="street" type="string" />
+		<property name="city" column="city" type="string" />
+	</class>
+	
+</hibernate-mapping>
